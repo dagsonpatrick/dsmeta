@@ -34,3 +34,85 @@ yarn add react-datepicker@4.8.0 @types/react-datepicker@4.4.2
 Macete para criar uma data de X dias atrás:
 const date = new Date(new Date().setDate(new Date().getDate() - 365));
 
+
+
+Consulta customizada:
+
+@Query("SELECT obj FROM Sale obj WHERE obj.date BETWEEN :min AND :max ORDER BY obj.amount DESC")
+Page<Sale> findSales(LocalDate min, LocalDate max, Pageable pageable);
+
+
+Passo: Implantação no Heroku
+Arquivo system.properties
+
+java.runtime.version=17
+Criar app no Heroku
+Definir variáveis de ambiente:
+TWILIO_SID
+TWILIO_KEY
+TWILIO_PHONE_FROM
+TWILIO_PHONE_TO
+
+heroku -v
+heroku login
+heroku git:remote -a <nome-do-app>
+git remote -v
+git subtree push --prefix backend heroku main
+
+---------------------------------------------------
+FrontEnd
+yarn add axios@0.27.2
+
+Passo: Listagem de vendas
+Definição da BASE_URL:
+
+export const BASE_URL = import.meta.env.VITE_BACKEND_URL ?? "http://localhost:8080";
+
+
+
+Passo: Mensagem Toast de confirmação
+yarn add react-toastify@9.0.5
+No App.tsx:
+
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
+
+Passo: Deploy no Netlify
+Antes: acrescente window.React = React no seu main.tsx conforme abaixo, e salve um novo commit:
+
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import App from './App'
+import './index.css'
+
+window.React = React
+
+ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+)
+https://www.netlify.com/
+
+Deploy básico
+
+Base directory: frontend
+Build command: yarn build
+Publish directory: frontend/dist
+Variáveis de ambiente:
+VITE_BACKEND_URL
+Configurações adicionais
+
+Site settings -> Domain Management: (colocar o nome que você quiser)
+Deploys -> Trigger deploy
+
+
+
+
+
+
+
+
+
