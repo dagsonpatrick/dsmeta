@@ -4,5 +4,33 @@ yarn create vite frontend --template react-ts
 # Baixar as dependencias do projeto
 yarn
 
+# Criar projeto Spring Boot no Spring Initializr com as seguintes dependências:
 
+Web
+JPA
+H2
+Securit
+
+# Ajuste no arquivo pom.xml:
+<plugin>
+	<groupId>org.apache.maven.plugins</groupId>
+	<artifactId>maven-resources-plugin</artifactId>
+	<version>3.1.0</version><!--$NO-MVN-MAN-VER$ -->
+</plugin>
+
+
+git init
+git add .
+git commit -m "Project created"
+git branch -M main
+git remote add origin git@github.com:dagsonpatrick/dsmeta.git
+git push -u origin main
+
+Passo: Datepicker
+Documentação: https://github.com/Hacker0x01/react-datepicker
+yarn add react-datepicker@4.8.0 @types/react-datepicker@4.4.2
+
+
+Macete para criar uma data de X dias atrás:
+const date = new Date(new Date().setDate(new Date().getDate() - 365));
 
