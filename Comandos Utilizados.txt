@@ -1,0 +1,8 @@
+# Criar projeto ReactJS com Typescrip
+yarn create vite frontend --template react-ts
+
+# Baixar as dependencias do projeto
+yarn
+
+
+
