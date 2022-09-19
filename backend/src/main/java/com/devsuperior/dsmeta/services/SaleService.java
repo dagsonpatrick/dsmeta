@@ -1,4 +1,4 @@
-package services;
+package com.devsuperior.dsmeta.services;
 
 import java.time.Instant;
 import java.time.LocalDate;
@@ -12,8 +12,9 @@ import org.springframework.stereotype.Service;
 
 import com.devsuperior.dsmeta.dto.SaleDTO;
 import com.devsuperior.dsmeta.entities.Sale;
+import com.devsuperior.dsmeta.repositories.SaleRepository;
 
-import repositories.SaleRepository;
+
 
 /**
  * @author Dagson Souza

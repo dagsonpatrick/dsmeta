@@ -1,4 +1,4 @@
-package controller;
+package com.devsuperior.dsmeta.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -10,16 +10,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.devsuperior.dsmeta.dto.SaleDTO;
-
-import services.SaleService;
-import services.SmsService;
+import com.devsuperior.dsmeta.services.SaleService;
+import com.devsuperior.dsmeta.services.SmsService;
 
 /**
  * @author Dagson Souza
  *
  */
 @RestController
-@RequestMapping(value = "/sales")
+@RequestMapping("sales")
 public class SaleController {
 	
 	@Autowired
